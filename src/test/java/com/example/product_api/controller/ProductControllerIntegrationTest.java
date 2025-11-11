@@ -21,7 +21,7 @@ public class ProductControllerIntegrationTest {
 
     @Test
     public void givenValidAuth_whenGetProducts_thenReturnProducts() throws Exception {
-        mockMvc.perform(get("/products").with(httpBasic("user", "password")))
+        mockMvc.perform(get("/products").with(httpBasic("use", "passwor")))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$").isArray())
                 .andExpect(jsonPath("$").isNotEmpty());
