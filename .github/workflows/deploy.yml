@@ -44,7 +44,7 @@ jobs:
        key: ${{ secrets.EC2_SSH_KEY }}
        script: |
           pkill -f product-api || true
-          nohup java -jar /home/ec2-user/product-api/product-api-0.0.1-SNAPSHOT.jar > app.log 2>&1 &
+          nohup setsid java -jar /home/ec2-user/product-api/product-api-0.0.1-SNAPSHOT.jar > app.log 2>&1 < /dev/null &
           sleep 3
 
         
