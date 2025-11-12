@@ -26,12 +26,12 @@ jobs:
    - name: Deploy to EC2 via SSH
      uses: easingthemes/ssh-deploy@v2
      with:
-       ssh-private-key: $ {{ secrets.EC2_SSH_KEY }}
-       remote-user: ec2-user
-       server-ip: ${{ secrets.EC2_IP }}
-       remote-path: /home/ec2-user/product-api
-       local-path: build/libs/
-       rsync-options: "-avz --delete"
+       SSH_PRIVATE_KEY: $ {{ secrets.EC2_SSH_KEY }}
+       REMOTE_USER: ec2-user
+       REMOTE_HOST: ${{ secrets.EC2_IP }}
+       SOURCE: build/libs/
+       TARGET: /home/ec2-user/product-api
+       ARGS: "-avz --delete"
 
    - name: Restart app on EC2
      uses: appleboy/ssh-action@master
