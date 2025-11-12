@@ -42,10 +42,11 @@ jobs:
        host: ${{ secrets.EC2_IP }}
        username: ec2-user
        key: ${{ secrets.EC2_SSH_KEY }}
+       request_pty: true
        script: |
           nohup setsid java -jar /home/ec2-user/product-api/product-api-0.0.1-SNAPSHOT.jar > app.log 2>&1 < /dev/null &
           sleep 3
-          request_pty: true
+          
 
 
         
