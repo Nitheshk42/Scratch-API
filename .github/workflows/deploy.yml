@@ -23,7 +23,7 @@ jobs:
      run: ./gradlew clean build
 
    - name: Deploy to EC2 via SSH
-     uses: easingthene/ssh-deploy@v2
+     uses: easingthemes/ssh-deploy@v2
      with:
        ssh-private-key: $ {{ secrets.EC2_SSH_KEY }}
        remote-user: ec2-user
