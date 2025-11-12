@@ -43,9 +43,10 @@ jobs:
        username: ec2-user
        key: ${{ secrets.EC2_SSH_KEY }}
        script: |
-          pkill -f product-api || true
-          nohup setsid java -jar /home/ec2-user/product-api/product-api-0.0.1-SNAPSHOT.jar > app.log 2>&1 < /dev/null &
-          sleep 3
+         pkill -f product-api || true
+         screen -dmS product-api java -jar /home/ec2-user/product-api/product-api-0.0.1-SNAPSHOT.jar > app.log 2>&1
+         sleep 3
+
 
         
        
